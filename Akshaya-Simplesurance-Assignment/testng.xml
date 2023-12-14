@@ -4,11 +4,7 @@
     <test verbose="2" preserve-order="true"
           name="C:/Users/VIGNESH/Downloads/Akshaya-Simplesurance-Selenium-Automation/Akshaya-Simplesurance-Assignment">
         <classes>
-            <class name="createSingleInsurance">
-                <methods>
-                    <include name="createSingleInsurancePolicy"/>
-                </methods>
-            </class>
+            <class name="createSingleInsurance"></class>
         </classes>
     </test>
 </suite>
