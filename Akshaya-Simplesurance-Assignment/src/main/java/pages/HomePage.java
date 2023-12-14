@@ -1,14 +1,14 @@
 package pages;
 
 import driver.DriverManager;
+import enums.WaitStrategy;
 import org.openqa.selenium.By;
 
-public final class HomePage {
+public final class HomePage extends BasePage {
 
     private final By newButton = By.xpath("//span[contains(text(),'New')]");
 
     public void clickNewButton(){
-        DriverManager.getDriver().findElement(newButton).click();
+        click(newButton, WaitStrategy.CLICKABLE);
     }
-
 }
