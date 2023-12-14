@@ -6,7 +6,7 @@ public class BaseTest {
     protected BaseTest(){}
 
     @BeforeMethod
-    public void startup(){
+    public void startup() throws Exception {
         Driver.initDriver();
     }
 
