@@ -1,8 +1,10 @@
 import com.google.common.collect.Ordering;
 import constants.FrameworkConstants;
+import enums.ConfigProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import utils.ReadPropertyFile;
 
 import java.util.List;
 
@@ -13,9 +15,7 @@ public final class importInsuranceTest extends BaseTest {
     @Test
     public void importCsvFileViaUpload(){
         LoginPage lp = new LoginPage();
-        String importErrorMessageText = lp.enterEmailId("testsellingpartner4@simplesurance.de")
-                .enterPassword("TestSellingPartner4Pass")
-                .clickNextButton()
+        String importErrorMessageText = lp.loginAndRoutToHomePage(ReadPropertyFile.getValue(ConfigProperties.EMAILID),ReadPropertyFile.getValue(ConfigProperties.PASSWORD))
                 .clickImportButton()
                 .uploadCsvFile(FrameworkConstants.getUploadCsvFilePath())
                 .clickCreateInsuranceButton()
@@ -26,9 +26,7 @@ public final class importInsuranceTest extends BaseTest {
     @Test
     public void importCsvFileViaImportButton(){
         LoginPage lp = new LoginPage();
-        String importErrorMessageText = lp.enterEmailId("testsellingpartner4@simplesurance.de")
-                .enterPassword("TestSellingPartner4Pass")
-                .clickNextButton()
+        String importErrorMessageText = lp.loginAndRoutToHomePage(ReadPropertyFile.getValue(ConfigProperties.EMAILID),ReadPropertyFile.getValue(ConfigProperties.PASSWORD))
                 .clickImportButton()
                 .importCsvFile(FrameworkConstants.getUploadCsvFilePath())
                 .clickCreateInsuranceButton()

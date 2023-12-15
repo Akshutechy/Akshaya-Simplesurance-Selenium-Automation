@@ -1,8 +1,10 @@
 import com.github.javafaker.Faker;
+import enums.ConfigProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.InsuranceSuccessPage;
 import pages.LoginPage;
+import utils.ReadPropertyFile;
 
 import java.util.Locale;
 
@@ -30,13 +32,15 @@ public final class createSingleInsuranceTest extends BaseTest {
             cityName = fake.address().cityName(),
             countryCode = fake.address().countryCode();
 
+    String cardNumber = "4242424242424242",
+    expiryDate = "0424",
+    cvv = "424";
+
 
     @Test
     public void createSingleInsurancePolicy() throws InterruptedException {
         LoginPage lp = new LoginPage();
-        InsuranceSuccessPage isp = lp.enterEmailId("testsellingpartner4@simplesurance.de")
-                .enterPassword("TestSellingPartner4Pass")
-                .clickNextButton()
+        InsuranceSuccessPage isp = lp.loginAndRoutToHomePage(ReadPropertyFile.getValue(ConfigProperties.EMAILID),ReadPropertyFile.getValue(ConfigProperties.PASSWORD))
                 .clickNewButton()
                 .enterNewInsuranceProductDetails(countryName, productName, tariff, insuranceCategory, period, paymentType, productClass, serialNo, deviceName, invoiceNo, orderNo)
                 .clickNextButton()
@@ -45,7 +49,7 @@ public final class createSingleInsuranceTest extends BaseTest {
                 .confirmAllCheckboxes()
                 .clickCreateInsuranceButton()
                 .clickContinueToPaymentButton()
-                .enterCardDetails("4242424242424242", "1024", "567")
+                .enterCardDetails(cardNumber,expiryDate,cvv)
                 .clickOrderButton();
         Assert.assertEquals(isp.getInsuranceHeaderText(), "Insurance details");
         Assert.assertEquals(isp.getStatusText(), "Created");

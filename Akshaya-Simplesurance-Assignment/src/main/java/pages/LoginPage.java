@@ -30,6 +30,13 @@ public final class LoginPage extends BasePage {
         return new HomePage();
     }
 
+    public HomePage loginAndRoutToHomePage(String emailId, String password){
+        this.enterEmailId(emailId)
+                .enterPassword(password)
+                .clickNextButton();
+        return new HomePage();
+    }
+
     private void switchToEnglishLanguage(){
         click(languageButton, WaitStrategy.CLICKABLE, "Language Button");
         click(englishLanguageButton, WaitStrategy.CLICKABLE, "English Language Button");
