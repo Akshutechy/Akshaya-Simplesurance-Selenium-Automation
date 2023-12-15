@@ -10,7 +10,7 @@ public class FrameworkConstants {
     private FrameworkConstants(){}
 
     private static final String CONFIGFILEPATH = System.getProperty("user.dir")+"/src/test/resources/config/config.properties";
-    private static final int TIMEOUTINSECONDS = 10;
+    private static final int TIMEOUTINSECONDS = 20;
     private static final String EXTENTREPORTFOLDERPATH = System.getProperty("user.dir")+"/extent-test-output/";
     private static String extentReportFilePath="";
 
