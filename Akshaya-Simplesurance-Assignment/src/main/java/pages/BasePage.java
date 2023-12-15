@@ -5,6 +5,7 @@ import enums.WaitStrategy;
 import factories.ExplicitWaitFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import reports.ExtentLogger;
 
@@ -16,6 +17,11 @@ public class BasePage {
         ExplicitWaitFactory.performExplicitWait(by,waitStrategy).sendKeys(valueToEnter);
         ExtentLogger.pass(valueToEnter+" is entered in the "+elementName);
     }
+
+    protected void sendKeyboardButtons(By by, Keys keyToPress){
+        DriverManager.getDriver().findElement(by).sendKeys(keyToPress);
+    }
+
 
     protected void clickAndSendKeys(By by, String valueToEnter, WaitStrategy waitStrategy, String elementName){
         ExplicitWaitFactory.performExplicitWait(by,waitStrategy).click();

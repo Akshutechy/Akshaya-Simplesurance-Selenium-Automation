@@ -2,6 +2,7 @@ package pages;
 
 import enums.WaitStrategy;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import java.util.List;
 
@@ -9,10 +10,14 @@ public final class HomePage extends BasePage {
 
     private final By newButton = By.xpath("//span[contains(text(),'New')]");
     private final By searchForDropDown = By.cssSelector("div.MuiSelect-selectMenu");
+    private final By policyNumberSearchTextBox = By.xpath("//input[@type='text']");
+    private final By emailIdSearchTextBox = By.xpath("//input[@type='email']");
     private final By dropDownContainer = By.cssSelector("ul[role='listbox']>li");
     private final By policyNumberAccordion = By.xpath("//th[@data-sort='POLICY_NUMBER']//*[name()='svg']");
     private final By activationDateAccordion = By.xpath("//th[@data-sort='ACTIVATED_AT']//*[name()='svg']");
     private final By policyNumberList = By.xpath("//table[@data-testid=\"policy-list\"]/tbody/tr/th[1]//span[1]");
+    private final By searchResultPolicyNumberValue = By.xpath("//table[@data-testid=\"policy-list\"]/tbody/tr[1]/th[1]//span[1]");
+    private final By searchResultEmailValue = By.xpath("//table[@data-testid=\"policy-list\"]/tbody/tr[1]/th[3]");
     private final By activationDateList = By.xpath("//table[@data-testid=\"policy-list\"]/tbody/tr/th[4]//span[1]");
 
     public CreateNewInsurancePage clickNewButton() {
@@ -40,7 +45,27 @@ public final class HomePage extends BasePage {
         return getTextForListOfElements(activationDateList, WaitStrategy.PRESENT);
     }
 
-    public void searchWith(){
-        selectNonStaticDropDown(searchForDropDown, dropDownContainer,"Search For Dropdown","Policy number");
+    public HomePage searchWith(String searchSection, String valueToSearch){
+        waitForDuration(5000);
+        selectNonStaticDropDown(searchForDropDown, dropDownContainer,"Search For Dropdown",searchSection);
+        waitForDuration(2000);
+        if(searchSection.equalsIgnoreCase("Policy number")){
+            sendKeys(policyNumberSearchTextBox,valueToSearch, WaitStrategy.PRESENT,"Search Box");
+            sendKeyboardButtons(policyNumberSearchTextBox, Keys.ENTER);
+        }
+        else if(searchSection.equalsIgnoreCase("E-Mail")){
+            sendKeys(emailIdSearchTextBox,valueToSearch, WaitStrategy.PRESENT,"Search Box");
+            sendKeyboardButtons(emailIdSearchTextBox, Keys.ENTER);
+        }
+        waitForDuration(3000);
+        return this;
+    }
+
+    public String getSearchResultPolicyNumber(){
+        return getText(searchResultPolicyNumberValue, WaitStrategy.PRESENT);
+    }
+
+    public String getSearchResultEmailId(){
+        return getText(searchResultEmailValue, WaitStrategy.PRESENT);
     }
 }

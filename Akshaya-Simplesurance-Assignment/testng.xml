@@ -8,7 +8,8 @@
           name="C:/Users/VIGNESH/Downloads/Akshaya-Simplesurance-Selenium-Automation/Akshaya-Simplesurance-Assignment">
         <classes>
 <!--            <class name="createSingleInsuranceTest"></class>-->
-            <class name="sortInsuranceTest"></class>
+<!--            <class name="sortInsuranceTest"></class>-->
+            <class name="searchInsuranceTest"></class>
         </classes>
     </test>
 </suite>
