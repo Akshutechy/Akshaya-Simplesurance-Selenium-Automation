@@ -52,7 +52,7 @@ public class BasePage {
     }
 
     protected void forceClick(By by, WaitStrategy waitStrategy, String elementName){
-        ExplicitWaitFactory.performExplicitWait(by,waitStrategy).click();
+        ExplicitWaitFactory.performExplicitWait(by,waitStrategy);
         JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
         js.executeScript("arguments[0].click();", DriverManager.getDriver().findElement(by));
         ExtentLogger.pass(elementName+" is clicked");

@@ -20,6 +20,7 @@ public final class PaymentPage extends BasePage {
     }
 
     public PaymentPage enterCardDetails(String cardNumber, String expiryDate, String cardCvc){
+       waitForDuration(7000);
         switchToFrame(paymentFrame, WaitStrategy.CLICKABLE);
         sendKeysSlowType(cardNumberTextBox,cardNumber, WaitStrategy.PRESENT, "Card Number");
         sendKeysSlowType(cardExpiryTextBox,cardNumber, WaitStrategy.PRESENT, "Card Expiration Date");
