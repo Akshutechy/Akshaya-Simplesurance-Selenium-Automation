@@ -33,8 +33,8 @@ public final class createSingleInsuranceTest extends BaseTest {
             countryCode = fake.address().countryCode();
 
     String cardNumber = "4242424242424242",
-    expiryDate = "0424",
-    cvv = "424";
+    expiryDate = "1024",
+    cvv = "206";
 
 
     @Test

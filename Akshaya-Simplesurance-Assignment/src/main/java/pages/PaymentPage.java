@@ -23,8 +23,8 @@ public final class PaymentPage extends BasePage {
        waitForDuration(7000);
         switchToFrame(paymentFrame, WaitStrategy.CLICKABLE);
         sendKeysSlowType(cardNumberTextBox,cardNumber, WaitStrategy.PRESENT, "Card Number");
-        sendKeysSlowType(cardExpiryTextBox,cardNumber, WaitStrategy.PRESENT, "Card Expiration Date");
-        sendKeysSlowType(cardCVCTextBox,cardNumber, WaitStrategy.PRESENT, "Card CVC");
+        sendKeysSlowType(cardExpiryTextBox,expiryDate, WaitStrategy.PRESENT, "Card Expiration Date");
+        sendKeysSlowType(cardCVCTextBox,cardCvc, WaitStrategy.PRESENT, "Card CVC");
         switchToParentFrame();
         return this;
     }
