@@ -31,10 +31,14 @@ public class ExtentReport {
         }
     }
 
-    public static void flushReports() throws Exception {
+    public static void flushReports() {
         if(Objects.nonNull(extent)){
             extent.flush();
-            Desktop.getDesktop().browse(new File(FrameworkConstants.getExtentReportFilePath()).toURI());
+            try {
+                Desktop.getDesktop().browse(new File(FrameworkConstants.getExtentReportFilePath()).toURI());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             ExtentManager.unload();
         }
     }

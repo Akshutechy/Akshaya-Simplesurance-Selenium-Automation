@@ -18,14 +18,14 @@ public class FrameworkConstants {
 
     public static int getTimeout(){return TIMEOUTINSECONDS;}
 
-    public static String getExtentReportFilePath() throws Exception {
+    public static String getExtentReportFilePath(){
         if(extentReportFilePath.isEmpty()){
             extentReportFilePath=createReportPath();
         }
         return extentReportFilePath;
     }
 
-    private static String createReportPath() throws Exception {
+    private static String createReportPath(){
         if(ReadPropertyFile.getValue(ConfigProperties.OVERRIDEREPORTS).equalsIgnoreCase("yes")){
             return EXTENTREPORTFOLDERPATH+"index.html";
         }

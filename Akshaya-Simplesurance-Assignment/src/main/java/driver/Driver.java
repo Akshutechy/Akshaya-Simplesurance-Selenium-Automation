@@ -14,7 +14,7 @@ public final class Driver {
     private Driver(){}
 
     private static WebDriver driver;
-    public static void initDriver() throws Exception {
+    public static void initDriver(){
         if(Objects.isNull(DriverManager.getDriver())) {
             if(ReadPropertyFile.getValue(ConfigProperties.BROWSER).equalsIgnoreCase("chrome")){
                 WebDriverManager.chromedriver().setup();

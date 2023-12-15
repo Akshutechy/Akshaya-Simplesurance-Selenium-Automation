@@ -1,10 +1,7 @@
 package reports;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
-import driver.DriverManager;
 import enums.ConfigProperties;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import utils.ReadPropertyFile;
 import utils.ScreenshotUtils;
 

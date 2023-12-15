@@ -1,11 +1,7 @@
 package pages;
 
-import driver.DriverManager;
 import enums.WaitStrategy;
 import org.openqa.selenium.By;
-import reports.ExtentLogger;
-import reports.ExtentManager;
-import reports.ExtentReport;
 
 public final class HomePage extends BasePage {
 

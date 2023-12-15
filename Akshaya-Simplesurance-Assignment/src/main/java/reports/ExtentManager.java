@@ -1,7 +1,6 @@
 package reports;
 
 import com.aventstack.extentreports.ExtentTest;
-import org.openqa.selenium.WebDriver;
 
 public final class ExtentManager {
     private ExtentManager(){}

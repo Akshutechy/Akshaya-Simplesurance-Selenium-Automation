@@ -10,7 +10,6 @@ import reports.ExtentReport;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.Arrays;
 
 public class Listener implements ITestListener, ISuiteListener {
 
@@ -23,8 +22,6 @@ public class Listener implements ITestListener, ISuiteListener {
     public void onFinish(ISuite suite) {
         try {
             ExtentReport.flushReports();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
