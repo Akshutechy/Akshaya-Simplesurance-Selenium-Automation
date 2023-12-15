@@ -2,6 +2,7 @@ import driver.DriverManager;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import reports.ExtentReport;
 
 public final class createSingleInsurance extends BaseTest {
     @Test
