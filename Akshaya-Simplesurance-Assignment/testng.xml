@@ -7,7 +7,8 @@
     <test verbose="2" preserve-order="true"
           name="C:/Users/VIGNESH/Downloads/Akshaya-Simplesurance-Selenium-Automation/Akshaya-Simplesurance-Assignment">
         <classes>
-            <class name="createSingleInsuranceTest"></class>
+<!--            <class name="createSingleInsuranceTest"></class>-->
+            <class name="sortInsuranceTest"></class>
         </classes>
     </test>
 </suite>

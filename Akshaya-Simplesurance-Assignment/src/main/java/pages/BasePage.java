@@ -83,6 +83,11 @@ public class BasePage {
         return DriverManager.getDriver().findElement(by).getText();
     }
 
+    protected List<String> getTextForListOfElements(By by, WaitStrategy waitStrategy){
+        ExplicitWaitFactory.performExplicitWait(by,waitStrategy);
+        return DriverManager.getDriver().findElements(by).stream().map(WebElement::getText).toList();
+    }
+
     protected void switchToFrame(By by, WaitStrategy waitStrategy){
         DriverManager.getDriver().switchTo().frame(DriverManager.getDriver().findElement(by));
     }
