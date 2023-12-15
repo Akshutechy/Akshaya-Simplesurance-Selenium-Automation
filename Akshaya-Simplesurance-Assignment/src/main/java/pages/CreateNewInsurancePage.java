@@ -35,18 +35,18 @@ public final class CreateNewInsurancePage extends BasePage {
     private final By confirmationCheckBox4 = By.xpath("(//input[@type='checkbox'])[4]");
     private final By createInsuranceButton = By.xpath("//span[contains(text(),'Create insurance')]");
 
-   public CreateNewInsurancePage enterNewInsuranceProductDetails(){
-       selectNonStaticDropDown(productCountryDropDown, dropDownContainer,"Country Drop Down","Germany");
-       selectNonStaticDropDown(productNameDropDown, dropDownContainer,"Product Name Drop Down","Nokia_v1Allianz_global");
-       selectNonStaticDropDown(productTariffDropDown, dropDownContainer,"Tariff Drop down","1-34-Nokia_v1Allianz_global-D-EUR-v1-Accidental_damage");
-       selectNonStaticDropDown(productInsuranceCategoryDropDown, dropDownContainer,"Insurance Category Drop down","CATEGORY_SMARTPHONE");
-       selectNonStaticDropDown(productPeriodDropDown, dropDownContainer,"Period Drop down","12 month(s)");
-       selectNonStaticDropDown(productPaymentTypeDropDown, dropDownContainer,"Payment Type Drop down","One-time");
-       selectNonStaticDropDown(productClassDropDown, dropDownContainer,"Payment Type Drop down","Nokia 5/500 - EUR 500.00");
-       sendKeys(productSerialNumberTextBox, "123456", WaitStrategy.PRESENT, "Serial Number Box");
-       sendKeys(productDeviceNameTextBox, "Nokia Device", WaitStrategy.PRESENT, "Device Name Box");
-       sendKeys(productInvoiceNumberTextBox, "1234567890", WaitStrategy.PRESENT, "Invoice Number Box");
-       sendKeys(productOrderNumberTextBox, "0123456", WaitStrategy.PRESENT, "Order Number Box");
+   public CreateNewInsurancePage enterNewInsuranceProductDetails(String countryName, String productName, String tariff, String insuranceCategory, String period, String paymentType, String productClass, String serialNo, String deviceName, String invoiceNo, String orderNo){
+       selectNonStaticDropDown(productCountryDropDown, dropDownContainer,"Country Drop Down",countryName);
+       selectNonStaticDropDown(productNameDropDown, dropDownContainer,"Product Name Drop Down",productName);
+       selectNonStaticDropDown(productTariffDropDown, dropDownContainer,"Tariff Drop down",tariff);
+       selectNonStaticDropDown(productInsuranceCategoryDropDown, dropDownContainer,"Insurance Category Drop down",insuranceCategory);
+       selectNonStaticDropDown(productPeriodDropDown, dropDownContainer,"Period Drop down",period);
+       selectNonStaticDropDown(productPaymentTypeDropDown, dropDownContainer,"Payment Type Drop down",paymentType);
+       selectNonStaticDropDown(productClassDropDown, dropDownContainer,"Product Class",productClass);
+       sendKeys(productSerialNumberTextBox, serialNo, WaitStrategy.PRESENT, "Serial Number Box");
+       sendKeys(productDeviceNameTextBox, deviceName, WaitStrategy.PRESENT, "Device Name Box");
+       sendKeys(productInvoiceNumberTextBox, invoiceNo, WaitStrategy.PRESENT, "Invoice Number Box");
+       sendKeys(productOrderNumberTextBox, orderNo, WaitStrategy.PRESENT, "Order Number Box");
        return this;
     }
 
@@ -55,15 +55,15 @@ public final class CreateNewInsurancePage extends BasePage {
         return this;
     }
 
-    public CreateNewInsurancePage enterNewInsuranceCustomerDetails(){
-        sendKeys(firstNameTextBox, "Akshaya", WaitStrategy.PRESENT, "First Name Box");
-        sendKeys(lastNameTextBox, "Narayanan", WaitStrategy.PRESENT, "Last Name Box");
-        sendKeys(emailTextBox, "akshaya.n@gmail.com", WaitStrategy.PRESENT, "Email Id Box");
-        sendKeys(streetTextBox, "Martin Reisenburger", WaitStrategy.PRESENT, "Street Name Box");
-        sendKeys(houseNumberTextBox, "44", WaitStrategy.PRESENT, "House Number Box");
-        sendKeys(postalCodeTextBox, "12001", WaitStrategy.PRESENT, "Postal Code Box");
-        sendKeys(cityTextBox, "Berlin", WaitStrategy.PRESENT, "City Name Box");
-        sendKeys(countryTextBox, "DE", WaitStrategy.PRESENT, "Country Name Box");
+    public CreateNewInsurancePage enterNewInsuranceCustomerDetails(String firstName, String lastName, String email, String streetName, String houseNumber, String postalCode, String cityName, String countryCode){
+        sendKeys(firstNameTextBox, firstName, WaitStrategy.PRESENT, "First Name Box");
+        sendKeys(lastNameTextBox, lastName, WaitStrategy.PRESENT, "Last Name Box");
+        sendKeys(emailTextBox, email, WaitStrategy.PRESENT, "Email Id Box");
+        sendKeys(streetTextBox, streetName, WaitStrategy.PRESENT, "Street Name Box");
+        sendKeys(houseNumberTextBox, houseNumber, WaitStrategy.PRESENT, "House Number Box");
+        sendKeys(postalCodeTextBox, postalCode, WaitStrategy.PRESENT, "Postal Code Box");
+        sendKeys(cityTextBox, cityName, WaitStrategy.PRESENT, "City Name Box");
+        sendKeys(countryTextBox, countryCode, WaitStrategy.PRESENT, "Country Name Box");
         return this;
     }
 
