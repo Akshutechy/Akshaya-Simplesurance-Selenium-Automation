@@ -9,6 +9,7 @@ import java.util.List;
 public final class HomePage extends BasePage {
 
     private final By newButton = By.xpath("//span[contains(text(),'New')]");
+    private final By importButton = By.xpath("//span[contains(text(),'Import')]");
     private final By searchForDropDown = By.cssSelector("div.MuiSelect-selectMenu");
     private final By policyNumberSearchTextBox = By.xpath("//input[@type='text']");
     private final By emailIdSearchTextBox = By.xpath("//input[@type='email']");
@@ -23,6 +24,11 @@ public final class HomePage extends BasePage {
     public CreateNewInsurancePage clickNewButton() {
         click(newButton, WaitStrategy.CLICKABLE, "New Button");
         return new CreateNewInsurancePage();
+    }
+
+    public ImportInsurancesPage clickImportButton() {
+        click(importButton, WaitStrategy.CLICKABLE, "Import Button");
+        return new ImportInsurancesPage();
     }
 
     public HomePage clickPolicyNumberAccordion() {

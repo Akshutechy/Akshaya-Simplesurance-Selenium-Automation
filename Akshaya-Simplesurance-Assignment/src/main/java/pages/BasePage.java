@@ -102,6 +102,11 @@ public class BasePage {
         DriverManager.getDriver().switchTo().parentFrame();
     }
 
+    protected void uploadFiles(By by, String filePath, WaitStrategy waitStrategy){
+        ExplicitWaitFactory.performExplicitWait(by,waitStrategy).sendKeys(filePath);
+        ExtentLogger.pass("File is Uploaded");
+    }
+
 
     public static void waitForDuration(long milliseconds) {
         try {
