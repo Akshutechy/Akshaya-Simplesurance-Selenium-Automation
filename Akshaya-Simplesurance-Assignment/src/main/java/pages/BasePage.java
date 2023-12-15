@@ -18,7 +18,8 @@ public class BasePage {
         ExtentLogger.pass(valueToEnter+" is entered in the "+elementName);
     }
 
-    protected void sendKeyboardButtons(By by, Keys keyToPress){
+    protected void sendKeyboardButtons(By by, Keys keyToPress, WaitStrategy waitStrategy){
+        ExplicitWaitFactory.performExplicitWait(by, waitStrategy);
         DriverManager.getDriver().findElement(by).sendKeys(keyToPress);
     }
 
@@ -34,7 +35,7 @@ public class BasePage {
         for (char c : valueToEnter.toCharArray()) {
             String s = String.valueOf(c);
             DriverManager.getDriver().findElement(by).sendKeys(s);
-            waitForDuration(200); // Adjust delay as needed (milliseconds)
+            waitForDuration(200);
         }
         ExtentLogger.pass(valueToEnter+" is entered in the "+elementName);
     }
@@ -50,7 +51,8 @@ public class BasePage {
         ExtentLogger.pass(elementName+" is clicked");
     }
 
-    protected void forceClick(By by, String elementName){
+    protected void forceClick(By by, WaitStrategy waitStrategy, String elementName){
+        ExplicitWaitFactory.performExplicitWait(by,waitStrategy).click();
         JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
         js.executeScript("arguments[0].click();", DriverManager.getDriver().findElement(by));
         ExtentLogger.pass(elementName+" is clicked");
@@ -95,6 +97,7 @@ public class BasePage {
     }
 
     protected void switchToFrame(By by, WaitStrategy waitStrategy){
+        ExplicitWaitFactory.performExplicitWait(by, waitStrategy);
         DriverManager.getDriver().switchTo().frame(DriverManager.getDriver().findElement(by));
     }
 

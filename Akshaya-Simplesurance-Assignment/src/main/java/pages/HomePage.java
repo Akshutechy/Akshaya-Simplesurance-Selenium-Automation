@@ -32,13 +32,11 @@ public final class HomePage extends BasePage {
     }
 
     public HomePage clickPolicyNumberAccordion() {
-        waitForDuration(3000);
         click(policyNumberAccordion, WaitStrategy.CLICKABLE, "Policy Number Accordion Button");
         return this;
     }
 
     public HomePage clickActivationDateAccordion() {
-        waitForDuration(3000);
         click(activationDateAccordion, WaitStrategy.CLICKABLE, "Activation Date Accordion Button");
         return this;
     }
@@ -52,18 +50,15 @@ public final class HomePage extends BasePage {
     }
 
     public HomePage searchWith(String searchSection, String valueToSearch){
-        waitForDuration(5000);
         selectNonStaticDropDown(searchForDropDown, dropDownContainer,"Search For Dropdown",searchSection);
-        waitForDuration(2000);
         if(searchSection.equalsIgnoreCase("Policy number")){
             sendKeys(policyNumberSearchTextBox,valueToSearch, WaitStrategy.PRESENT,"Search Box");
-            sendKeyboardButtons(policyNumberSearchTextBox, Keys.ENTER);
+            sendKeyboardButtons(policyNumberSearchTextBox, Keys.ENTER, WaitStrategy.PRESENT);
         }
         else if(searchSection.equalsIgnoreCase("E-Mail")){
             sendKeys(emailIdSearchTextBox,valueToSearch, WaitStrategy.PRESENT,"Search Box");
-            sendKeyboardButtons(emailIdSearchTextBox, Keys.ENTER);
+            sendKeyboardButtons(emailIdSearchTextBox, Keys.ENTER, WaitStrategy.PRESENT);
         }
-        waitForDuration(3000);
         return this;
     }
 

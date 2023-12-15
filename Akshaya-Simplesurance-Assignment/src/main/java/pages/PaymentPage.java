@@ -14,14 +14,13 @@ public final class PaymentPage extends BasePage {
     private final By orderButton = By.cssSelector("button[type=\"button\"]:nth-child(1)");
 
     public PaymentPage clickContinueToPaymentButton() {
-       waitForDuration(5000);
-        forceClick(continueToPayment, "Continue To Payment Button");
+        waitForDuration(5000);
+        forceClick(continueToPayment, WaitStrategy.CLICKABLE,"Continue To Payment Button");
         return this;
     }
 
     public PaymentPage enterCardDetails(String cardNumber, String expiryDate, String cardCvc){
-        waitForDuration(7000);
-        switchToFrame(paymentFrame,WaitStrategy.PRESENT);
+        switchToFrame(paymentFrame, WaitStrategy.CLICKABLE);
         sendKeysSlowType(cardNumberTextBox,cardNumber, WaitStrategy.PRESENT, "Card Number");
         sendKeysSlowType(cardExpiryTextBox,cardNumber, WaitStrategy.PRESENT, "Card Expiration Date");
         sendKeysSlowType(cardCVCTextBox,cardNumber, WaitStrategy.PRESENT, "Card CVC");
@@ -30,7 +29,7 @@ public final class PaymentPage extends BasePage {
     }
 
     public InsuranceSuccessPage clickOrderButton() {
-        forceClick(orderButton, "Create Order Button");
+        forceClick(orderButton, WaitStrategy.CLICKABLE, "Create Order Button");
         return new InsuranceSuccessPage();
     }
 }
