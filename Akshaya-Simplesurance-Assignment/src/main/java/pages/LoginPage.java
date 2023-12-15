@@ -10,7 +10,7 @@ import reports.ExtentReport;
 public final class LoginPage extends BasePage {
 
     private final By emailTextBox = By.id("login_username");
-    private final By passwordTextBox = By.id("login_passwords");
+    private final By passwordTextBox = By.id("login_password");
     private final By nextButton = By.xpath("//button[@type=\"submit\"]");
 
     public LoginPage enterEmailId(String emailId){
